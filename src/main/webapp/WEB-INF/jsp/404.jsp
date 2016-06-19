@@ -14,8 +14,8 @@
 </head>
 <body>
 	<div class="container">
-		<div class="jumbotron " >
-			<img src="/resources/image/404.jpg" >
+		<div class="jumbotron ">
+			<img src="/resources/image/404.jpg">
 		</div>
 	</div>
 </body>

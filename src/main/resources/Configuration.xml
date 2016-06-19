@@ -12,7 +12,7 @@
 
 
 	<mappers>
-	<mapper resource="com/lu/mapping/User.xml" />
-</mappers>
+		<mapper resource="com/lu/mapping/User.xml" />
+	</mappers>
 
 </configuration>

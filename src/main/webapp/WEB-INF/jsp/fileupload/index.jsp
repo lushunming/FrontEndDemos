@@ -32,7 +32,7 @@
 			swf : "/resources/js/webuploader/Uploader.swf",
 
 			// 文件接收服务端。
-			server : 'http://webuploader.duapp.com/server/fileupload.php',
+			server : '/fileUpload/upload',
 
 			// 选择文件的按钮。可选。
 			// 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -41,6 +41,12 @@
 			// 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
 			resize : false
 		});
+		
+		$(function(){
+			$("#ctlBtn").bind("click",function(){
+				uploader.upload();
+			})
+		})
 	</script>
 </body>
 </html>
