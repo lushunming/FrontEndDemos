@@ -30,18 +30,21 @@ public class FileUploadController {
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
 		try {
-			 inputStream = file.getInputStream();
+			inputStream = file.getInputStream();
 			int len = 0;
 			byte[] buffer = new byte[1024];
-			 outputStream = new FileOutputStream(new File("\\\\localhost\\" + "img\\" + file.getName()));
+			File file2 = new File("E://" + "doc", file.getOriginalFilename());
+			if (!file2.exists()) {
+				file2.createNewFile();
+			}
+			outputStream = new FileOutputStream(file2);
 			while ((len = inputStream.read(buffer)) != -1) {
-				inputStream.read(buffer, 0, len - 1);
-				outputStream.write(buffer);
+				outputStream.write(buffer,0,len);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally {
 			try {
 				inputStream.close();
 				outputStream.close();
@@ -49,8 +52,7 @@ public class FileUploadController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
+
 		}
 		return null;
 	}
