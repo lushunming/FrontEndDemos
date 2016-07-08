@@ -12,13 +12,13 @@
 	<mvc:annotation-driven />
 	<context:property-placeholder location="classpath:db.properties" />
 	<!-- dataSource配置 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driver}" />
 		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
 		<property name="user" value="${jdbc.user}" />
 		<property name="password" value="${jdbc.password}" />
-	</bean>
+	</bean> -->
 	<!-- viewResolver -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -28,24 +28,24 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- 事务管理 -->
-	<bean id="transactionManager"
+	<!-- <bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
-	</bean>
+	</bean> -->
 
 	<!-- 扫描mapper包 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.lu.inter" />
-	</bean>
+	</bean> -->
 	<!-- mybatis注入sqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!--configLocation属性指定mybatis的核心配置文件 -->
+		configLocation属性指定mybatis的核心配置文件
 		<property name="configLocation" value="classpath:Configuration.xml" />
-		<!-- 所有配置的mapper文件 -->
-		<!-- <property name="mapperLocations" value="classpath*:com/lu/mapping/*.xml" 
-			/> -->
-	</bean>
+		所有配置的mapper文件
+		<property name="mapperLocations" value="classpath*:com/lu/mapping/*.xml" 
+			/>
+	</bean> -->
 	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**" />
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

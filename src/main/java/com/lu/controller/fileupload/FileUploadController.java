@@ -33,13 +33,18 @@ public class FileUploadController {
 			inputStream = file.getInputStream();
 			int len = 0;
 			byte[] buffer = new byte[1024];
-			File file2 = new File("E://" + "doc", file.getOriginalFilename());
+			String parent = "E:" + File.separator + "doc";
+			/*File file3 = new File(parent);
+			if (!file3.exists()) {
+				file3.mkdirs();
+			}
+			File file2 = new File(parent, file.getOriginalFilename());
 			if (!file2.exists()) {
 				file2.createNewFile();
-			}
-			outputStream = new FileOutputStream(file2);
+			}*/
+			outputStream = new FileOutputStream(parent+File.separator+file.getOriginalFilename());
 			while ((len = inputStream.read(buffer)) != -1) {
-				outputStream.write(buffer,0,len);
+				outputStream.write(buffer, 0, len);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
